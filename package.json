@@ -2,9 +2,9 @@
   "name": "open-notes",
   "version": "1.0.0",
   "description": "Most basic API for a simple note taker",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js"
   },
   "author": "Oniya Daniel <daniel.prince84@gmail.com>",
   "license": "MIT",
