@@ -60,4 +60,22 @@ module.exports = (app, db) => {
             }
         });
     });
+
+
+    // show
+    app.get("/note/:id", (req, res) => {
+
+        let id = req.params.id;
+        let details = { _id: new ObjectID(id) };
+
+        db.collection("notes").findOne(details, function(err, data) {
+
+            if (err) {
+                res.send({error: "An error occured"});
+            }
+            else {
+                res.send(data);
+            }
+        });
+    });
 };
