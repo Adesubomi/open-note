@@ -7,5 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Oniya Daniel <daniel.prince84@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongodb": "^3.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
 }
