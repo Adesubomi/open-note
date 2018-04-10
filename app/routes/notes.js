@@ -1,6 +1,8 @@
+const ObjectID = require("mongodb").ObjectID;
 
 module.exports = (app, db) => {
 
+    // store
     app.post("/note", (req, res) => {
         let note = {
             title: req.body.title,
@@ -19,6 +21,21 @@ module.exports = (app, db) => {
                 res.send(result.ops[0]);
             }
 
+        });
+    });
+
+    // delete
+    app.delete("/note/:id", (req, res) => {
+
+        let resourceId = req.params.id;
+        let resDetails = { _id: new ObjectID(resourceId) };
+
+        db.collection("notes").remove(resDetails, (err, data) => {
+            if (err) {
+                res.send({error:"An error has occurred"});
+            } else {
+                res.send("Note " + resourceId + " deleted!");
+            } 
         });
     });
 };
