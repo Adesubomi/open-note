@@ -38,4 +38,26 @@ module.exports = (app, db) => {
             } 
         });
     });
+
+    // update
+    app.put("/note/:id", (req, res) => {
+
+        let resourceId = req.params.id;
+        let resWhere = { _id: new ObjectID(resourceId) };
+        let note = {
+            title: req.body.title,
+            message: req.body.message,
+        };
+
+        db.collection("notes").update(resWhere, note, (err, response) => {
+
+            if (err) {
+                res.send({error: "An error occurred"});
+            }
+            else {
+                res.send(`Note ${resourceId} has been updated.
+                    ${response}`);
+            }
+        });
+    });
 };
